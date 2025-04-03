@@ -76,9 +76,19 @@ These tasks require understanding the intention, tone, and context of a response
 For example, a story may use a different reorder events creatively or analogy of wording while still conveying the same narrative. 
 In such cases, BERTScore performs better because it can recognize that the generated output shares semantic alignment with the reference even if the wording differs.
 
-\pagebreak
+\item[Problem 4:] \hfill %Describe how hybrid QA architectures integrate both retrieval-based and generative models. Provide an example of such a system.
 
-\item[Problem 4:] Describe how hybrid QA architectures integrate both retrieval-based and generative models. Provide an example of such a system.
+Hybrid QA architectures are designed to combine two core approaches in QA systems, which are retrieval-based and generative models.
+Retrieval part of the hybrid QA locates relevant content from a source while generative part is responsible for generating natural language responses.
+This integration allows QA systems to be both factual-based and linguistically fluent.
+
+The process of QA begins with a retriever that identifies relevant documents from a large corpus to ensure that the model works with content that is presented.
+Then, a generative language model such as GPT processes the retrieved information along with dialogue history to produce coherent and conversational answer.
+Instead of copying a sentence from the source, the generator may involve paraphrasing, summarizing, or reasoning across multiple pieces of information.
+
+An example of a hybrid QA system is Stanford's CQA framework. In this system, users ask follow-up questions in a multi-turn dialogue in which each question is context-dependent.
+The system needs to understand the flow of conversation from previous questions, retrieve the relevant passage, and generate a response that reflects both the context and current question
+even if the answer is not explicitly stated in the retrieved part.
 
 \pagebreak
 
