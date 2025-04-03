@@ -35,9 +35,23 @@ giving more weight to less likely words. This leads to more creative, varied, an
 which is ideal for poetry, storytelling, or brainstorming tasks. 
 However, very high temperatures can also introduce nonsense or off-topic responses.
 
-\pagebreak
+\item[Problem 2:] \hfill %What are the advantages and limitations of sampling-based decoding in open-ended text generation tasks like storytelling?
 
-\item[Problem 2:] What are the advantages and limitations of sampling-based decoding in open-ended text generation tasks like storytelling? 
+Sampling-based decoding is a decoding strategy used in language generation where the model randomly selects the next word 
+based on its probability, rather than always choosing the most likely one. This makes it especially suitable for creative tasks 
+like storytelling, where unpredictability and variation are essential for producing engaging content.
+
+Sampling-based decoding offers several benefits for open-ended text generation tasks like storytelling.
+By introducing randomness, sampling helps the model avoid repetitive or generic responses, creating outputs 
+that feel more human-like and less mechanical.
+Furthermore, it allows for exploration of diverse narrative paths by occasionally selecting less frequent but reasonable words.
+Lastly, tecniques like top-n sampling where the model samples only from the top n probable words, or top-p sampling, where the model samples 
+from the smallest set of words whose cumulative probability exceeds p, allow users to control the level of creativity and coherence of the model in the generated text.
+
+However, sampling-based decoding also has limitations. Random selection increases the chance of the model producing disconnected 
+or nonsensical sentences. Moreover, the model can produce very different outputs for the same set of inputs, 
+making it harder to reproduce specific responses or maintain a consistent storytelling voice.
+Finally, sampling can sometimes deviate from the intended direction or tone of the story.
 
 \pagebreak
 
