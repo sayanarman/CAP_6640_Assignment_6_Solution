@@ -53,9 +53,28 @@ or nonsensical sentences. Moreover, the model can produce very different outputs
 making it harder to reproduce specific responses or maintain a consistent storytelling voice.
 Finally, sampling can sometimes deviate from the intended direction or tone of the story.
 
-\pagebreak
+\item[Problem 3:] \hfill %Compare and contrast BLEU, ROUGE, and BERTScore in evaluating text generation outputs. Why are word-overlap metrics insufficient for evaluating dialogue or storytelling?
 
-\item[Problem 3:] Compare and contrast BLEU, ROUGE, and BERTScore in evaluating text generation outputs. Why are word-overlap metrics insufficient for evaluating dialogue or storytelling?
+BLEU, ROUGE, and BERTScore are three commonly used metrics for evaluating NLG, particularly in tasks like machine translation, summarization, 
+and open-ended text generation. Each has its strengths and limitations, especially when applied to creative outputs like dialogue or storytelling.
+
+BLEU measures the degree to which the generated text matches the reference through n-gram precision. 
+It is particularly useful for tasks with a small set of valid outputs, such as machine translation, where phrase-level correctness is critical. 
+However, BLEU does not account for meaning. If the model uses synonyms or rephrases the sentence, BLEU may penalize it, even if the alternative is equally valid.
+
+ROUGE is often used in summarization tasks, and focuses on more recall than BLEU. It evaluates how much of the reference content is captured in the generated 
+summary by comparing overlapping unigrams, bigrams, or longest common subsequences. While effective for extractive summarization, 
+ROUGE is less suited for abstractive summaries that creatively rephrase or reorganize content. Like BLEU, it fails to consider semantic similarity or context.
+
+BERTScore offers a more modern and semantically aware evaluation method. It compares contextualized word embeddings between the generated and reference texts, 
+allowing it to assess meaning alignment rather than simple word overlap. This makes it particularly effective for evaluating tasks with more expressive variability, 
+such as dialogue generation, storytelling, or creative writing, where many phrasings may be equally valid.
+
+In open-ended text generation like storytelling, there is hardly ever a single true, correct, and acceptable answer. 
+Word-overlap metrics such as BLEU and ROUGE penalize valid outputs simply because they differ in wording from the reference. 
+These tasks require understanding the intention, tone, and context of a response, which BLEU and ROUGE are not designed to measure. 
+For example, a story may use a different reorder events creatively or analogy of wording while still conveying the same narrative. 
+In such cases, BERTScore performs better because it can recognize that the generated output shares semantic alignment with the reference even if the wording differs.
 
 \pagebreak
 
