@@ -125,9 +125,27 @@ Effective summarization depends on understanding which entities are being discus
 By resolving pronouns and other referring expressions, a summarizing tool can produce clearer, more connected summaries. 
 Otherwise, it might introduce ambiguity or misrepresent who did what.
 
-\pagebreak
+\item[Problem 6:] \hfill %How do end-to-end neural models approach coreference resolution differently from traditional rule-based systems?
 
-\item[Problem 6:] How do end-to-end neural models approach coreference resolution differently from traditional rule-based systems?
+Coreference resolution has transitioned from rule-based systems to data-driven neural architectures. 
+While traditional systems rely on explicit rules and hand-engineered features, end-to-end neural models aim to learn everything from the data itself.
+
+Traditional coreference resolution systems often involve two main steps, which are identifing mentions in the text and then evaluating
+the relationships between them using rules or feature-based models.
+These models often use syntactic clues like gender and number agreement or surface features such as word overlap. 
+Mention-pair models, classify every potential pair independently. While these systems are easy to interpret and implement,
+they treat each decision in isolation, which can result in contradictions across the text. Moreover, their reliance on hand-designed 
+features means they may not generalize well beyond training data. 
+To address consistency, entity-level models were developed. Instead of only comparing mention pairs, they cluster all mentions of the same entity. 
+These models evaluate global coherence but still depend on feature engineering and iterative rule-based clustering strategies.
+
+End-to-end neural models on the other hand represent a more modern approach. Rather than breaking the task into separate stages, 
+they jointly learn mention detection and coreference resolution within a single architecture. These models use contextualized embeddings 
+to represent spans in their surrounding context. Span scoring predicts the valid mentions. Coreference scoring then determines which spans
+belong to the same entity. Lastly, the final coreference clusters are formed using neural decision models. 
+Because everything is learned from data, there is no need for manually created features or linguistic rules.
+This allows end-to-end models to capture complex relationships and dependencies between mentions across the entire document, 
+leading to more accurate and coherent coreference resolution. However, they are computationally expensive and require large amounts of annotated data for training.
 
 \pagebreak
 
