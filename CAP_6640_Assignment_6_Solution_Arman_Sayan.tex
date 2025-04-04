@@ -164,7 +164,19 @@ a new kind of question without the necessity of fine-tuning and retraining. This
 
 \pagebreak
 
-\item[Problem 8:] Describe anti-curriculum learning. How does starting with harder tasks improve generalization in multitask training?
+\item[Problem 8:] \hfill %Describe anti-curriculum learning. How does starting with harder tasks improve generalization in multitask training?
+
+Anti-curriculum learning is a pre-training strategy that reverses the traditional curriculum learning approach. 
+Instead of beginning with simple tasks and gradually increasing difficulty, it starts by exposing the model to 
+complex and diverse tasks first, followed by simpler ones later in training.
+
+Similar to how human learning often begins with simple concepts and building up to more complex ones, in traditional curriculum learning,
+the model is trained on easier tasks first, allowing it to build a foundation of knowledge before tackling more challenging problems.
+However, this approach can lead to overfitting on the simpler tasks, as the model may not learn to generalize well to more complex scenarios.
+
+In contrast, anti-curriculum learning begins with harder tasks that require reasoning, forcing the model to learn the deep reasoning and understanding in the data.
+This can lead to better generalization when it encounters simpler tasks later in training in which the only thing to in the later stage is finetuning the model performance.
+Otherwise, the model might learn to rely on low-level features or shortcuts that are only effective for the easier tasks.
 
 \pagebreak
 
