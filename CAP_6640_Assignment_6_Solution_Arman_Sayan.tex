@@ -90,9 +90,40 @@ An example of a hybrid QA system is Stanford's CQA framework. In this system, us
 The system needs to understand the flow of conversation from previous questions, retrieve the relevant passage, and generate a response that reflects both the context and current question
 even if the answer is not explicitly stated in the retrieved part.
 
-\pagebreak
+\item[Problem 5:] \hfill %Define coreference resolution. Why is it critical for full-text understanding tasks such as QA and summarization?
 
-\item[Problem 5:] Define coreference resolution. Why is it critical for full-text understanding tasks such as QA and summarization?
+Coreference resolution is the process of determining when two or more expressions in a text refer to the same underlying entity. 
+These expressions can include names, pronouns, or noun phrases. For instance, in the sentence "Mike went to the office of Jessica because he had a meeting with her.",
+the system must recognize that "he" refers to "Mike" and "her" refers to "Jessica".
+Successfully linking these references is what coreference resolution accomplishes.
+
+Coreference resolution involves three important steps.
+The first step is mention detection, where the system identifies all possible mentions in the text.
+The second step is feature extraction, where for each mention pair, the system extracts lexical, syntactic, and semantic features.
+The third step is clustering, where the system predicts which mentions refer to the same entity and groups them into clusters.
+Following step includes using coreference resolution models such as mention pair model, entity-level model, or end-to-end neural model.
+
+Coreference resolution is essential for accurately understanding and processing text across multiple sentences. 
+It links information that appears in different parts of the text, helping the model form a clear and consistent understanding of the overall context.
+This is particularly important for full-text understanding tasks like question QA and summarization.
+
+When answering questions in multi-sentence contexts, a system needs to trace entities across a long text.
+Assume that we have the following QA setup:
+
+\begin{quote}
+    \textbf{Context:} Josh's actor friends notified the police after they hadn't heard from him for 3 days.
+    Later that evening, police went to his home and found him dead due to heart attack. \\
+    \textbf{Q:} Which actor has passed away recently due to heart attack? \\
+    \textbf{A:} Josh (requires resolution of "his"/"him") \\
+\end{quote}
+
+Like in the above mentioned example, if a question refers to “he” or “she,” the model must know who that refers to. 
+Without coreference resolution, the model might miss the connection and return an incorrect or incomplete answer.
+
+In summarization, coreference resolution is also important. 
+Effective summarization depends on understanding which entities are being discussed across the document. 
+By resolving pronouns and other referring expressions, a summarizing tool can produce clearer, more connected summaries. 
+Otherwise, it might introduce ambiguity or misrepresent who did what.
 
 \pagebreak
 
