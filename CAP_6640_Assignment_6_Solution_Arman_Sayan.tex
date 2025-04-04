@@ -147,9 +147,20 @@ Because everything is learned from data, there is no need for manually created f
 This allows end-to-end models to capture complex relationships and dependencies between mentions across the entire document, 
 leading to more accurate and coherent coreference resolution. However, they are computationally expensive and require large amounts of annotated data for training.
 
-\pagebreak
+\item[Problem 7:] \hfill %How does the DecaNLP framework unify multiple NLP tasks without relying on task-specific modules or parameters?
 
-\item[Problem 7:] How does the DecaNLP framework unify multiple NLP tasks without relying on task-specific modules or parameters?
+The DecaNLP framework introduces a way to handle multiple NLP tasks using a single model without designing separate components or parameters for each task. 
+Instead of building a separate module for every objective, DecaNLP reframes all tasks into a QA format, enabling a single architecture to process them in a unified way.
+
+Unlike traditional multi-task learning systems that rely on custom heads or task IDs to switch between different objectives, 
+DecaNLP uses a uniform input-output structure. Every task is rephrased as a form of question answering.
+Instead of giving the model a label or ID for a task, it receives a context and a question, and the model generates an answer.
+There are no hardcoded parameters specific to each task, and no manually added indicators to tell the model what it should do.
+By expressing every task in QA style, the model figures out the task based on the phrasing of the question.
+
+Another strength of this framework is its ability to generalize to unseen tasks by rephrasing them as questions. 
+Since the model learns how to follow natural language prompts, it can be extended to new tasks at test time by simply providing
+a new kind of question without the necessity of fine-tuning and retraining. This approach leads to zero-shot learning across NLP tasks.
 
 \pagebreak
 
