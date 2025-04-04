@@ -200,9 +200,23 @@ This mechanism allows the model to either generate new words or copy words direc
 This is achieved by using gating mechanism like in LSTM architecture for decoder implementation.
 This flexibility enables MQAN to produce task-appropriate answers using a single architecture, without requiring separate decoders or output layers for different tasks.
 
-\pagebreak
+\item[Problem 10:] \hfill %What is the difference between a general language model and a conditional language model? Provide examples of tasks suitable for each.
 
-\item[Problem 10:] What is the difference between a general language model and a conditional language model? Provide examples of tasks suitable for each.
+A general language model is trained to predict the next word in a sequence using only the words that came before it.
+It does not depend on any additional input. This type of model is focused on capturing the statistical patterns and structure
+of language in general. The main goal is to generate fluent and grammatically correct text based purely on the wording history.
+Examples of general language models include basic implementation such as n-gram models, and more advanced solutions that are RNN-based or transformer-based like GPT for
+dependency requirements.
+These models are suitable for tasks like text completion where the model is given a partial sentence and needs to predict the next word, 
+or text generation where the model generates a coherent passage of text like in story telling. A concrete example can be predicting what comes next in a sentence like "The sun is shining and the sky is...".
+
+On the other hand, a conditional language model is trained to generate output based on both the preceding words and some additional context or condition.
+This additional input can be a sentence, a question, an image, or any other relevant information that guides the generation process.
+These are also often used to direct what kind of output that the model should produce.
+For example, in a conditional language model, the model might be given a prompt like "Translate the following sentence to French: 'Hello, how are you?'"
+In this case, the model is conditioned on the task of translation, and it generates the output "Bonjour, comment ça va?" based on both the input sentence and the translation instruction.
+In similar fashion, conditional language models can be used for tasks like text summarization, where the model generates a summary based on the input text to make it shorter,
+or question answering, where the model generates an answer based on a given question and context.
 
 \end{description}
 
