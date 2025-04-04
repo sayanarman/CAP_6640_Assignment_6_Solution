@@ -178,9 +178,27 @@ In contrast, anti-curriculum learning begins with harder tasks that require reas
 This can lead to better generalization when it encounters simpler tasks later in training in which the only thing to in the later stage is finetuning the model performance.
 Otherwise, the model might learn to rely on low-level features or shortcuts that are only effective for the easier tasks.
 
-\pagebreak
+\item[Problem 9:] \hfill %What is the MQAN architecture? List two mechanisms it uses to handle multiple tasks as QA problems.
 
-\item[Problem 9:] What is the MQAN architecture? List two mechanisms it uses to handle multiple tasks as QA problems.
+The MQAN is a flexible, task-agnostic architecture designed for DecaNLP, a framework that reformulates various NLP tasks as QA problems. 
+Instead of building separate systems for different tasks, MQAN enables a single model to handle them all through a unified QA interface.
+
+Basically, MQAN in an encoder-decoder architecture that processes the context and question, and generates the answer.
+Both the context and question are encoded independently using shared layers. Then, dual coattention layer is used to align the context and question representations
+by attending them simultaneously. In order to understand the long-range relationships, next thing MQAN incorporates are two transformer layers with self attention.
+The final encoding from self-attention is passed to a auto-regressive decoder, which generates one token at a time.
+Pointer mechanism implemented in the decoder allows the model to decide between generating a new word, copying from the context, or copying from the question.
+
+As briefly mentioned above, the first mechanism MQAN uses is dual coattention.
+This mechanism enables the model to build a strong connection between the input question and the context by allowing each to attend to the other. 
+Namely, the model needs to identify how different parts of the question are relevant to different parts of the context, or the other way around.
+This attention ensures that the model understands both the task and the information it needs to solve it. 
+This is especially important when different tasks are framed as natural language instructions.
+
+The other mechanism is the pointer-generating decoder.
+This mechanism allows the model to either generate new words or copy words directly from the input context or question.
+This is achieved by using gating mechanism like in LSTM architecture for decoder implementation.
+This flexibility enables MQAN to produce task-appropriate answers using a single architecture, without requiring separate decoders or output layers for different tasks.
 
 \pagebreak
 
